@@ -50,6 +50,10 @@ include_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
 endif()
 INCLUDE_DIRECTORIES(${EIGEN_INCLUDE_DIRS})
 
+# We need shared ptr from boost since not all compilers are c++11 capable
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIRS})
+
 INCLUDE (${PROJ_SOURCE_DIR}/config/DependentOption.cmake)
 
 OPTION(ENABLE_TESTS OFF "Enable building of tests")
